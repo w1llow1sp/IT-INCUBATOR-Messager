@@ -1,20 +1,28 @@
 import React from 'react';
 import styles from './userDisplay.module.scss'
-import {Avatar, Badge, IconButton, Paper, TextField, Typography} from "@mui/material";
+import {Avatar, Badge, IconButton, Paper, Typography} from "@mui/material";
 import UserPic from "./userPic.png";
 import SendIcon from "@mui/icons-material/Send";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import {Input} from "../../components-UI/Input/Input";
-import {KeysTypes} from "../../../App";
+
+/*TODO:
+*  1.Реализовать функцию для изменения инпута
+* 2.Реализовать фукнцию для изменения отправки в localStorage*/
+
+
 
 type AppPropsType = {
     userMessage: string
     setUserMessage: (userMessage:string) => void
-    handleMessagesValue: (value:string,name:KeysTypes) => void
+    saveUserMsgToLocSrg:()=>void
 }
 
 export const UserDisplay = (props:AppPropsType) => {
 
+    const handleMessageSetter = (value:string) => {
+        props.setUserMessage(value)
+    }
 
     return (
         <div className={styles.container}>
@@ -59,12 +67,13 @@ export const UserDisplay = (props:AppPropsType) => {
                         styles={'default'}
                         required={false}
                         inputValue={props.userMessage}
-                        callback={()=>{}}
+                        callback={handleMessageSetter}
                         name={'User'}/>
                 </div>
 
                 <IconButton
                     color={'primary'}
+                    onClick={props.saveUserMsgToLocSrg}
                 >
                     <SendIcon/>
                 </IconButton>

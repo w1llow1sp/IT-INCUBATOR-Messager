@@ -35,7 +35,8 @@ export const Input: FC<InputPropsTypes> = ({
         <>
             <input
                 value={inputValue}
-                className={className} type={type}
+                className={className}
+                type={type}
                 onChange={handleValueChange}
                 required={required}
                 name={name}
