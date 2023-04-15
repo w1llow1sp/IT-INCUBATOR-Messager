@@ -3,7 +3,8 @@ import styles from './friendDisplay.module.scss'
 import {Avatar, Badge, Button, IconButton, Paper, TextField, Typography} from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import friendAvatar from './FriendPic.webp'
-
+import {Input} from "../../components-UI/Input/Input";
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 export const FriendDisplay = () => {
     return (
@@ -32,22 +33,32 @@ export const FriendDisplay = () => {
                     Friend
                 </Typography>
             </Paper>
-            <aside className={styles.block_bottom}>
                 <Paper
+                    className={styles.bottom}
                     variant={'elevation'}
                     elevation={3}
                     sx={{padding:1}}
                 >
-                    <TextField
-                    size={'small'}
-                    variant="standard"/>
+                    <div className={styles.inputWrap}>
+                        <AttachFileIcon
+                            htmlColor={'#afafaf'}
+                            fontSize={'large'}
+                        />
+                        <Input
+                            type={'text'}
+                            styles={'default'}
+                            required={false}
+                            inputValue={'string'}
+                            callback={()=> {}}
+                            name={'Friend'}/>
+                    </div>
+
                     <IconButton
                     color={'primary'}
                     >
                         <SendIcon/>
                     </IconButton>
                 </Paper>
-            </aside>
         </div>
     );
 };
