@@ -5,22 +5,28 @@ import UserPic from "./userPic.png";
 import SendIcon from "@mui/icons-material/Send";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import {Input} from "../../components-UI/Input/Input";
+import {MessagesStorageType} from "../../../App";
+import {MessageFriend} from "../FriendMessage/MessageFriend";
+import {MessageUser} from "../UserMessage/MessageUser";
 
 /*TODO:
 *  1.Реализовать функцию для изменения инпута
 * 2.Реализовать фукнцию для изменения отправки в localStorage*/
 
 
-
 type AppPropsType = {
+    messages: MessagesStorageType
     userMessage: string
-    setUserMessage: (userMessage:string) => void
-    saveUserMsgToLocSrg:()=>void
+    setUserMessage: (userMessage: string) => void
+    saveUserMsgToLocSrg: () => void
+
+    MessageUser: () => void
+    MessageFriend: () => void
 }
 
-export const UserDisplay = (props:AppPropsType) => {
+export const UserDisplay = (props: AppPropsType) => {
 
-    const handleMessageSetter = (value:string) => {
+    const handleMessageSetter = (value: string) => {
         props.setUserMessage(value)
     }
 
@@ -50,7 +56,10 @@ export const UserDisplay = (props:AppPropsType) => {
                     User
                 </Typography>
             </Paper>
-
+            <div className={styles.messageBlock}>
+                <MessageFriend style={'left'} messages={props.messages['Friend']} />
+                <MessageUser style={'right'} messages={props.messages['User']}/>
+            </div>
             <Paper
                 className={styles.bottom}
                 variant={'elevation'}

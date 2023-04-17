@@ -1,0 +1,60 @@
+.wrapper {
+  position: relative;
+}
+
+.card {
+  display: flex;
+  max-width: 80%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 1rem;
+  margin: 1rem;
+  white-space: pre-wrap;
+  overflow: auto;
+  border-radius: 0.7rem;
+
+
+  &_right{
+    justify-content: right;
+    margin-left: 1rem;
+    background-color: #0f82e8;
+    color:aliceblue;
+  }
+  &_right:after {
+
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 221px;
+    top: 52px;
+    border: 7px solid;
+    border-color:  transparent #0f82e8  #0f82e8 transparent;
+    rotate: 225deg;
+  }
+
+
+  &_left{
+    justify-content: left;
+    margin-left: auto;
+    background-color: aliceblue;
+    color:#0f82e8;
+    border-radius: 1rem;
+  }
+
+  &_left:after {
+
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 15px;
+    top: 52px;
+    border: 7px solid;
+    border-color:  transparent aliceblue  aliceblue transparent;
+    rotate: 225deg;
+  }
+
+
+}
